@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -64,6 +64,10 @@ const DailyCaloriesForm = () => {
     !auth && setState({ ...initialState });
     !auth && dispatch(modalActions.toggleModal());
   };
+
+  // useEffect(() => {
+  //   auth.dispatch(healthOperations.getDailyRateOperation(values, id));
+  // }, []);
 
   return (
     <DailyCaloriesFormStyled>
