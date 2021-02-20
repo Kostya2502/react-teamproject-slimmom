@@ -51,12 +51,13 @@ const DailyCaloriesForm = () => {
   const dispatch = useDispatch();
   const auth = useSelector(isAuth);
   const id = useSelector(authSelectors.getId);
+  const userData = useSelector(authSelectors.getUserdata);
   const [state, setState] = useState({ ...initialState });
   const [blood, setBlood] = useState({ ...booldType });
   const isModal = useSelector(getModalState);
 
   const onHandlerSubmit = values => {
-    //console.log('valuesON', values);
+    console.log('valuesON', values);
     !auth
       ? dispatch(healthOperations.getDailyRateOperation(values))
       : dispatch(healthOperations.getDailyRateOperation(values, id));
@@ -66,7 +67,10 @@ const DailyCaloriesForm = () => {
   };
 
   // useEffect(() => {
-  //   auth.dispatch(healthOperations.getDailyRateOperation(values, id));
+  //   console.log('userData', userData);
+  //   console.log('id', id);
+  //   auth && dispatch(healthOperations.getUserInfoOperation());
+  //   auth && dispatch(healthOperations.getDailyRateOperation(userData, id));
   // }, []);
 
   return (
